@@ -22,6 +22,9 @@ public class RobotMap {
 	public static final int pistonOneRetractedReedSwitchPort = 0;
 	public static final int pistonTwoRetractedReedSwitchPort = 0;
 
+	//compressor variables
+	public static final int dutyCyclesPerCharge = 0;
+	public static final int dutyCyclesRemainingforCompressorToRun = 0;
 	
 	//volume values for pistons
 	public static final int pistonOneVolumeOut = 0;

@@ -19,20 +19,25 @@ public class PneumaticPistonOne extends Subsystem {
     public void extendPiston(){
     	pistonOne.set(DoubleSolenoid.Value.kForward);
     }
+    
     public void retractPiston(){
     	pistonOne.set(DoubleSolenoid.Value.kReverse);
     }
+    
     public void stopPiston(){
     	pistonOne.set(DoubleSolenoid.Value.kOff);
     }
+    
     public boolean isExtended(){
     	return OI.pistonOneExtendedReedSwitch.get();
     	//returns true when activated
     }
+    
     public boolean isRetracted(){
     	return OI.pistonOneRetractedReedSwitch.get();
     	//returns true when activated
     }
+    
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 

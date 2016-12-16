@@ -11,20 +11,32 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class PneumaticCompressor extends Subsystem {
     public Compressor onboardCompressor = new Compressor(RobotMap.compressorPort);
+    int cyclesLeft;
     public PneumaticCompressor(){
-    	
+    	cyclesLeft = RobotMap.dutyCyclesPerCharge;
     }
     
     public boolean checkIfLow(){
-    	if(onboardCompressor.getPressureSwitchValue() == true){
+    	//commented out because 110 is way too high.
+    	/*if(onboardCompressor.getPressureSwitchValue() == true){
+    		return true;
+    	}else{
+    		return false;
+    	}*/
+    	
+    	if(cyclesLeft <= RobotMap.dutyCyclesRemainingforCompressorToRun){
     		return true;
     	}else{
     		return false;
     	}
     }
     public boolean checkifTooHigh(){
-    	return false;
-    	//once I figure out how to directly get the pressure I will further implement this
+    	//if the pressure is too high, return true
+    	if(onboardCompressor.getPressureSwitchValue() == false){
+    		return true;
+    	}else{
+    		return false;
+    	}
     }
     public void turnOnCompressor(){
     	onboardCompressor.start();
